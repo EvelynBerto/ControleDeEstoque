@@ -1,6 +1,8 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -47,6 +49,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+        }
+    }
 }
 
 dependencies {
@@ -62,6 +69,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.runtime.livedata)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,18 +79,26 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    //Compose
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    //Injecao de dependencia - Hilt
-    implementation(libs.dagger.hilt.android)
-    implementation(libs.hilt.compiler)
+
     //Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.compiler)
-    //Corroutines
-    implementation (libs.kotlinx.coroutines.core)
-    implementation (libs.kotlinx.coroutines.android)
-    //ViewModel/LiveData
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
-    implementation (libs.androidx.lifecycle.livedata.ktx)
+    val room_version = "2.6.1"
+
+    implementation ("androidx.room:room-runtime:$room_version")
+    annotationProcessor ("androidx.room:room-compiler:$room_version")
+
+    kapt ("androidx.room:room-compiler:$room_version")
+
+    //Coroutines - Room
+    implementation ("androidx.room:room-ktx:$room_version")
+
+    // Koin Core
+    implementation(project.dependencies.platform("io.insert-koin:koin-bom:3.5.0"))
+    implementation("io.insert-koin:koin-core")
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+    implementation ("androidx.navigation:navigation-compose:2.7.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -1,18 +1,16 @@
 package com.example.controleestoque.data
 
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import android.content.Context
 import com.example.controleestoque.data.dao.ProdutoDAO
-import com.example.controleestoque.domain.Produto
+import com.example.controleestoque.domain.model.Produto
 
 @Database(entities = [Produto::class], version = 1, exportSchema = false)
 abstract class ProdutoDB : RoomDatabase() {
 
     abstract fun produtoDao(): ProdutoDAO
-
-    companion object {
+}
+   /* companion object {
         @Volatile
         private var INSTANCE: ProdutoDB? = null
 
@@ -28,4 +26,4 @@ abstract class ProdutoDB : RoomDatabase() {
             }
         }
     }
-}
+}*/

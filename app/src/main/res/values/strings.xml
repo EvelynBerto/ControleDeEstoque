@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">ControleEstoque</string>
-    <string name="ADICIONAR_PRODUTOS">Adicionar Produto</string>
-    <string name="NOME_PROD">Nome: </string>
-    <string name="PRECO_PROD">Preço: </string>
-    <string name="DESC_PROD">Descrição: </string>
+    <string name="activity">MainActivity</string>
+    <string name="ESTOQUE">Controle de Estoque</string>
+    <string name="NOME_PROD">Nome</string>
+    <string name="VALOR_PROD">Valor</string>
+    <string name="DESC_PROD">Descrição</string>
     <string name="NF_PROD">Nota Fiscal: </string>
     <string name="LISTA_VAZIA">Adicione seus produtos</string>
     <string name="PROD_JA_EXISTE">Este produto já existe na sua lista!</string>
+    <string name="PROD_UPDATE">Atualizado com sucesso!</string>
+    <string name="PROD_UPDATE_ERROR">O produto não foi atualizado, tente novamente!</string>
     <string name="PROD_ADD">Adicionado com sucesso!</string>
     <string name="NOME_VAZIO">Digite o nome do produto</string>
     <string name="VALOR_VAZIO">Digite o valor do produto</string>
     <string name="NF_VAZIO">Digite a nota fiscal do produto</string>
+    <string name="ADD">Adicionar</string>
     <string name="DB_NOME">Nome</string>
     <string name="DB_VALOR">Valor</string>
     <string name="DB_DESCRICAO">Descricao</string>

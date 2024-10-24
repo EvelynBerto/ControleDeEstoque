@@ -1,6 +1,6 @@
-package com.example.controleestoque.layer
+package com.example.controleestoque.ui.listeners
 
-import com.example.controleestoque.domain.Produto
+import com.example.controleestoque.domain.model.Produto
 
 interface ProdutoActionListeners {
     fun onAddProduto(produto: Produto)

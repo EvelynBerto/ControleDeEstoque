@@ -1,4 +1,4 @@
-package com.example.controleestoque.domain
+package com.example.controleestoque.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
